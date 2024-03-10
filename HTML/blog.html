@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head><!--meta tags live in head, head define config about this file-->
         <meta charset="utf-8">
+        <!--meta tags to define info about this web page-->
+        <!--are used for search engine!!!-->
+        <meta name="author" content="Haoyang">
+        <meta name="keywords" content="HTML, tutorial, Haoyang site">
+
+        <!--control how your website is displayed on different devices, mobile and desktop...you get the point
+        allow HTML to respond to the size of the screen-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Full description of your webiste" content= "content of the meta tags, your description">
         <meta name="description" content="My website Description for Google Search">
         <title>Site Title Will Show At Top</title>
     </head>
@@ -10,6 +19,15 @@
         <!--Divs VS Spans, these are all container!-->
         <!--Spans are inline container
         Divs are block container-->
+
+
+        <!--iframe able to display/embed another different website inside your website-->
+        <iframe src="https://kaden175ck.github.io/" frameborder="0" width="500" height="550">
+            URL to my Blog site, too bad you can't see!
+        </iframe>
+
+        <!--some website don't allow you to use iframe, such as Amazon! So you can't have Amazon as iframe in anywebsite-->
+
 
         <span>Span1 to show</span>
         <span>Span2 to show</span>
@@ -36,6 +54,39 @@
         force the next element go below them-->
         <p>Paragraph1</p>
         <p>Paragraph2</p>
+
+
+        <!--plain textbox for user input-->
+        <input type="text" value="enter your username" />
+        <input type="password" />
+        <input type="date" />
+        <input type="email" /> <!--this is the same as normal text nothing special-->
+        <input type="range" />
+        <input type="file" />
+        <!--checkbox you can check 2, check both of them at the same time-->
+        <input type="checkbox" />
+        <input type="checkbox" />
+
+
+        <textarea rows="10" cols="30" />
+            Enter a paragraph
+        </textarea>
+
+
+        <!--ratio button you can only click one at a time 
+        if you have the same name like below-->
+        <input name="btn" type="radio" />
+        <input name="btn" type="radio" />
+
+        <br>
+        <hr>
+        <input type="submit" />
+        <hr>
+
+
+        <form> <!--wrapper for user input tags usually-->
+            <input type="submit" />
+        </form>
 
 
 
