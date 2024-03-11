@@ -10,6 +10,7 @@
     <body style="color: green; font-size:20px">
 
         <header>
+            <a href="blog.html">Go Blog!</a>
             <!--override that body CSS style-->
             <h1 style="color: blue;">CSS Tut!</h1>
             <hr>
@@ -19,6 +20,32 @@
             <h2 style="background-color: rgb(255,0,0)">rgb(255,0,0)</h2>
             <h2 style="border: 1px solid yellow">border with Yellow</h2>
         </header>
+        <br>
+        <div style="background-color: lightblue;">
+            Do you see the difference? one is close to boundry one don't. Padding to control space inside the element, margine outside the element
+        </div>
+        <br>
+
+        <div style="padding:40px; background-color: lightblue;">
+            Padding to control space inside the element, margine outside the element
+        </div>
+        <br>
+
+        <div style="padding-top:40px; background-color: lightblue;">
+            Padding Top, Padding to control space inside the element, margine outside the element
+        </div>
+        <br>
+
+        <div style="padding-top:40px; padding-bottom:40px;background-color: lightblue;">
+            Padding Top&bottom, Padding to control space inside the element, margine outside the element
+        </div>
+        <br>
+
+        <!--you can also go clockwise-->
+        <div style="padding:40px 10px 40px 10px; background-color: lightblue;">
+            Padding clockwise, Padding to control space inside the element, margine outside the element
+        </div>
+        <br>
 
         <main style="background-color: black;">
             <p>This is first Paragraph!</p>
@@ -30,6 +57,22 @@
 
         <hr>
         <br>
+
+        <!--margin-->
+        <div style="margin:0px; background-color: lightblue;">
+            margin 0px, margin to control space outside the element
+        </div>
+        <br>
+        <div style="margin:20px; background-color: lightblue;">
+            margin 20px, margin to control space outside the element
+        </div>
+        <br>
+        <!--margin work the same as padding,
+        margin can go negative but you won't be using it usually
+        it cause overlapping-->
+
+
+
         <!--if you don't define the width or height, the box will just take too much space
         can also do percent like 100% or 80%
         you can also replace width with height
@@ -48,9 +91,13 @@
             <p>This is 5th Paragraph!</p>
         </main>
 
-        <main style="border:1px solid black; max-width:500px;">
+        <main style="padding: 10px; border:1px solid black; max-width:500px;">
             <p>This is 6th Paragraph!</p>
         </main>
+
+        
+
+        
 
 
     </body>
