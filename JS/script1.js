@@ -81,5 +81,116 @@ document.write(phrase.includes("Last"));
 
 document.write("<br>");
 document.write("<hr/>");
-var text = "ARE COOL";
+var text = 'ARE COOL';
 document.write(phrase.includes(text));
+document.write("<br>");
+document.write(text.includes("COOL"));
+document.write("<br>");
+// concatenation of strings
+document.write(phrase+text);
+document.write("<br>");
+document.write(phrase+ ' ' + text);
+
+
+/* working with nums*/
+document.write("<br>");
+document.write(2.2345);
+
+document.write("<br>");
+document.write(2*(2+7));
+
+
+
+
+document.write("<br>");
+var number = 6;
+document.write(number*2);
+
+
+document.write("<br>");
+document.write(number % 5);
+
+
+document.write("<br>");
+
+var number = -15;
+document.write(Math.abs(number));
+
+
+
+
+document.write("<br>");
+document.write(Math.max(3,number));
+
+
+
+
+
+
+document.write("<br>");
+document.write(Math.min(3,number));
+
+
+document.write("<br>");
+var number=0.9;
+document.write(Math.round(number));
+// standard rounding rules
+
+
+
+
+document.write("<br>");
+var number =2;
+document.write(Math.pow(number,3));
+
+
+
+document.write("<br>");
+document.write(Math.sqrt(number));
+
+
+
+document.write("<br>");
+document.write(Math.random());
+// return rand number between 0 and 1, decimal number
+
+
+
+document.write("<br>");
+document.write(Math.random()*10);
+
+document.write("<br>");
+// this will give you rand integer 0-10, zero and ten
+document.write(Math.round ( Math.random()*10)  );
+
+
+//______________________________________________________
+document.write("<br>");
+var name =window.prompt("Please enter your name: ");
+var age =window.prompt("How old are you: ");
+// javascript take this as string remember! 
+// so if you try to add 2 numbers, it will just give you 2+1=21
+document.write("Hey " + name + " How are you?"+"your age is"+age);
+document.write("<br>");
+//______________________________________________________
+// basic calculator
+document.write("<br>");
+var num1 =window.prompt("enter the first num: ");
+var num2 =window.prompt("enter the second num: ");
+
+//this is the conversion you need to do math cal,
+// it will convert to integer
+// will not work for float
+//num1 = parseInt(num1);
+//num2 = parseInt(num2);
+ num1 = parseFloat(num1);
+ num2 = parseFloat(num2);
+
+document.write(num1+num2);
+document.write("<br>");
+document.write("<br>");
+document.write("<br>");
+document.write("<br>");
+document.write("<br>");
+document.write("<br>");
+document.write("<br>");
