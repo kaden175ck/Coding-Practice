@@ -1,0 +1,1 @@
+## Open index.html and it will take you to blog page
