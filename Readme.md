@@ -1,1 +1,1 @@
-## This Repo is my study note.
+## This repository is my study notes. It's where I practice the basics of Computer Science. Though it contains no projects, you may find the notes helpful.
