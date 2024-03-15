@@ -2,6 +2,14 @@ body{
     color:red
 }
 
-h1{
+#external-h1{
     background-color: greenyellow;
+}
+
+.fancy-border{
+    border:3px dashed blue;
+}
+
+.blue-text{
+    color:cadetblue;
 }
