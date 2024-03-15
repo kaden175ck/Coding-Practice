@@ -1,1 +1,1 @@
-## You need to open index.html and page.html seperately, they are not linked or related.
+## Open index.html, all link together
