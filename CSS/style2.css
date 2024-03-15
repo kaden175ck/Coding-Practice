@@ -1,0 +1,76 @@
+#myId{
+    background-color: yellow;
+}
+
+.class1{
+    background-color: yellow;
+}
+
+*{
+    background-color: brown;
+}
+
+h1,h2,p{
+    background-color: black
+}
+
+ul > li{
+    background-color: blue;
+}
+
+p+h2{
+    background-color: red;
+}
+
+[title]{
+    background-color: antiquewhite;
+}
+
+[href]{
+    background-color: yellow;
+}
+
+li[title="lemons"]{
+    background-color: chartreuse;
+}
+
+[title *= "lem"] {
+    background-color: black;
+}
+
+input:checked{
+    box-shadow: 2px 2px 2px red;
+    background-color: yellow;
+}
+
+input:focus{
+    box-shadow: 2px 2px 2px red;
+    background-color: yellow;
+}
+
+input{
+    box-shadow: 2px 2px 2px red;
+    background-color: yellow;
+}
+
+input[type="checkbox"]:checked{
+    box-shadow: 2px 2px 2px red;
+    background-color: yellow;
+}
+
+h2:hover{
+    background-color:yellow;
+}
+
+ul > li:first-child{
+    background-color: black;
+}
+
+
+ul > li:nth-last-child(2){
+    background-color: black;
+}
+
+ul > li:nth-last-child(1){
+    background-color: black;
+}
