@@ -1,0 +1,56 @@
+.flex-container{
+    display: flex;/*resize with the window, change the element*/
+    flex-direction: row;/*specify which direction the element stack*/
+    /*could use row-reverse, column, column-reverse*/
+    justify-content: space-around;/*flex-start is the default*/
+    /*default is kind of left side, flex-end on the right side*/
+    /*can also use center, can use space-between, which put space between element
+    or you could use space-around, space more distributed */
+    flex-wrap: wrap; /*wrap, or no-wrap or wrap-reverse*/
+    /*you want the size remain unchanged
+    could be really helpful if you want to build mobile version!*/
+
+
+    /*controls what happened between space element*/
+    /* flex-start is the default value, all show at top*/
+    align-items:flex-start; /*can also do flex end*/
+    /*flex-end show at bottom same level*/
+    /*can also change indivialy in HTML*/
+
+
+    align-content:space-between;/*bring eveything to the top*/
+    /*align-content: space-between,center,end....*/
+
+
+
+
+}   
+
+
+
+
+
+
+
+.container {
+    background-color: coral;
+    border: 10px solid black;
+}
+  
+.box{
+  background-color: lightblue;
+  padding: 5px 10px 10px 5px;
+  margin: 10px 20px 20px 10px;
+  width: 120px;
+  height: 120px;
+  box-shadow: 2px 2px 2px black;
+}
+  
+.box2{
+  background-color: lightblue;
+  padding: 5px 10px 10px 5px;
+  margin: 10px 20px 20px 10px;
+  width: 120px;
+  height: 80px;
+  box-shadow: 2px 2px 2px black;
+}
