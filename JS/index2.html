@@ -5,9 +5,22 @@
     </head>
     
     <body>
+        <h1 id="header2">Event Listeners</h1>
+        <!--you can also put it in the image tag
+            so once image clicked,
+            the function also run onclick="handleClick()"-->
+        <img id="image" src="city.jpg" width="300">
+        <br>
+        <button id="button" onclick="alert('you clicked me')">Click Me</button>
+        <button id="button2" onclick="handleClick(this)">Click Me Second Time</button>
+
+
         <h1 id="header">JavaScript</h1>
         <a id="link" href="index.html">Go to Index</a>
     
         <script src="script2.js"></script>
+
+
+
     </body>
 </html>
