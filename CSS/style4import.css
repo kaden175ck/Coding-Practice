@@ -1,1 +1,8 @@
-@import "header.css"
+@import "header.css";
+@import "paragraph.css";
+
+
+/*overwrite the code you import*/
+h1{
+    color:black;
+}
