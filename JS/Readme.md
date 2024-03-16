@@ -1,1 +1,1 @@
-## Open index.html, all link together
+## Open index.html and it will take you to all pages, no ES6 in this folder
