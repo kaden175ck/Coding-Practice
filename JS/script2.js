@@ -29,6 +29,11 @@ image.addEventListener("mouseover", function(){
 
 });
 
+// you might notice that when you use the event inside your Javascript,
+// you didn't have "on" , like you just have "mouseout"
+// "mousein", but when you do it in HTML, you need to include "on"
+// like onmousein, onmouseout 
+
 // so that it zoom in and zoom out when mouse hover
 image.addEventListener("mouseout", function(){
     this.style = "";
