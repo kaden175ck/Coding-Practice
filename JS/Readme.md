@@ -1,1 +1,1 @@
-## Open index.html and it will take you to all pages, no ES6 in this folder
+## Index.html will direct you to most of the pages. File names like loop.js correspond to loop.html; these files can only be accessed through the corresponding HTML file. There is no ES6 in this folder.
