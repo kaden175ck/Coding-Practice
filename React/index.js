@@ -1,6 +1,6 @@
 // alert("Hello!");
 // console.log(document)
-// any browser that load your HTML will give you this doc object
+
 
 const incrementBtn = document.getElementById('increment-btn')
 const countDisplay = document.getElementById('count-display')
