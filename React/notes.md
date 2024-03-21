@@ -15,7 +15,13 @@
 * the technique doesnt scale very well
 
 
+
 ## Arrow Function
 
 
 ## state? in React? in JS?
+
+## How react is set up?
+
+## React help us write HTML
+* we need to write JSX

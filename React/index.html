@@ -3,14 +3,31 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Learn React Site</title>
+        <!--this is the easy way of including react
+        you just add script tag-->
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+        <!--this is the script tag for react library-->
+        <!--make sure to put in the head-->
     </head>
     <body>
-        Start point
-
+        <!-- Start point
+            delete vinila js code
+            below are real react code
 
         <button id="increment-btn">+1</button>
         <div id="count-display">0</div>
         
+        <button id="increment-btn2">+1</button>
+        <div id="count-display2">0</div> -->
+
+
+        <div id="root"></div> <!--this id can be anything root just convention-->
+        <!--now you don't need anything
+        that is all you need for react
+        there is nothing in the div, but if you inspect
+        you will see it actually have content but it won't show up-->
         <script src="index.js"></script>
     </body>
 </html>
