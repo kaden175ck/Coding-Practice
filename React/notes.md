@@ -25,3 +25,21 @@
 
 ## React help us write HTML
 * we need to write JSX
+
+## React is used to CREATE the content
+## ReactDom is used to RENDER that to the DOM
+## JSX is syntax similar to HTML
+
+
+## components and elements
+components is like container, and have elements inside it
+
+react components can be reused, which is just a react function
+ and return an react element
+
+bascially just a JS function reture JSX
+
+## 
+
+
+
