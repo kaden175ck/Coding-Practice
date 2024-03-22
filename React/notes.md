@@ -39,7 +39,10 @@ react components can be reused, which is just a react function
 
 bascially just a JS function reture JSX
 
-## 
+## Node js allow us run JS outside the browser
+
+Don’t need to open node_modules folder, massive folder
+99% of the work is done in src folder
 
 
 
