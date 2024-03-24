@@ -46,3 +46,6 @@ Don’t need to open node_modules folder, massive folder
 
 
 
+## React is a library, not a framework
+* React is a library for building user interfaces
+
