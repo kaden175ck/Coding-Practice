@@ -20,6 +20,9 @@ const App = () => {
             <CountButton /> 
             {/* this is what called standalone component  */}
             app
+            <CountButton /> 
+            {/* this is how you reuse component easy af,
+            and they are independent of each other */}
 
         </div>
     )
