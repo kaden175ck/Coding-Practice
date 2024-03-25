@@ -49,3 +49,8 @@ Don’t need to open node_modules folder, massive folder
 ## React is a library, not a framework
 * React is a library for building user interfaces
 
+## what is Props
+* props is a value you pass into a component,
+* and component will inform what it does
+* props is short for properties
+* props are how components talk to each other

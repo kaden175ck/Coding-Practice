@@ -5,7 +5,19 @@ import React, { useState } from "react";
 // but you can always do regular function like
 // function CountButton(){}
 // here I use arrow fucntion to create a component
-const CountButton = () => {
+
+
+
+
+// remember this isjut normal js function that returtn JSX
+
+
+// you could also include props const CountButton = (props) => {
+// to get more custmoized features
+
+const CountButton = (props) => {
+    console.log(props) // you will see empty object
+    
 
     // console.log(useState(0))
     // after we call usefstate we get an array back [0,f]
