@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./CountButton.css"
 
 
 // but you can always do regular function like
@@ -82,10 +82,12 @@ const CountButton = (props) => {
         border: "1px solid black",
         borderRadius:"10px",
     }
+    
     const buttonStyles = {
         background: props.buttonColor,
         borderRadius:"10px",
     }
+
 
 
 
@@ -102,7 +104,7 @@ const CountButton = (props) => {
         {/* onClick is called props or attribute  */}
 
 
-        <div>{currentCount}</div>
+        <div className = {'count-display'}>{currentCount}</div>
         {/* we want this 0 to increment  */}
     </div>
     // all these components function must return JSX

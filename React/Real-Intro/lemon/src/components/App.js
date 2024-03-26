@@ -1,5 +1,5 @@
 import React from 'react'
-import CountButton from './CountButton'
+import CountButton from './CountButton/CountButton'
 // render the countbutton inside the App component
 
 

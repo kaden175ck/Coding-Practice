@@ -7,6 +7,10 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./components/App"
 
+import "./styles/global.css"
+// the external stylesheet
+// two ways to style one in file one external
+
 // you see the old good friend root div in public/index.html
 // so you already know we did exact same thing in vanilla js
 const reactContentRoot = document.getElementById("root")
