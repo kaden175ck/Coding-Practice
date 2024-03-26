@@ -16,11 +16,20 @@ const App = () => {
             app
             {/* you can also use the traitional HTML way:<CountButton></CountButton> */}
             
+
             
-            <CountButton /> 
+            {/* <CountButton />  */}
             {/* this is what called standalone component  */}
+           
+           
+            {/* this is how you pass props: */}
+            <CountButton incrementBy = {5} /> 
+            {/* you will see the empty object will 
+            have values: incrementBy 5 */}
+
+           
             app
-            <CountButton /> 
+            <CountButton incrementBy = {1}/> 
             {/* this is how you reuse component easy af,
             and they are independent of each other */}
 

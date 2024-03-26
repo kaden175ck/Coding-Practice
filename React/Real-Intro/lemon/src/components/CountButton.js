@@ -16,8 +16,16 @@ import React, { useState } from "react";
 // to get more custmoized features
 
 const CountButton = (props) => {
-    console.log(props) // you will see empty object
-    
+    //console.log(props) // you will see empty object
+    // these props are values we can use inside this component
+    // create props/pass props in App.js
+
+
+    // now over here you could say
+    // this will just give you numbers not showing the english word
+
+    // console.log(props.incrementBy)
+
 
     // console.log(useState(0))
     // after we call usefstate we get an array back [0,f]
@@ -44,7 +52,7 @@ const CountButton = (props) => {
         // currentCount++
         // now instead of doing ++,you just call setCuurentCount fucntion
         // setCurrentCount, a way to update this piece of state
-        setCurrentCount(currentCount + 1)
+        setCurrentCount(currentCount + props.incrementBy)
 
 
         console.log(currentCount)
@@ -69,7 +77,11 @@ const CountButton = (props) => {
             () => {alert("Clicked")}
         }>+1</button> here I did arrow function,but you can do whatever */}
 
-        <button onClick={handleClick}>+1</button>
+
+        {/* now instead of say +1, you could say plus incrementBy
+        <button onClick={handleClick}>+1</button> */}
+        {/* in order to let the button not show +1 */}
+        <button onClick={handleClick}>+{props.incrementBy}</button>
         {/* onClick is called props or attribute  */}
 
 
