@@ -23,13 +23,13 @@ const App = () => {
            
            
             {/* this is how you pass props: */}
-            <CountButton incrementBy = {5} /> 
+            <CountButton incrementBy = {5} buttonColor = {'red'}/> 
             {/* you will see the empty object will 
             have values: incrementBy 5 */}
 
            
             app
-            <CountButton incrementBy = {1}/> 
+            <CountButton incrementBy = {1} buttonColor = {'yellow'}/> 
             {/* this is how you reuse component easy af,
             and they are independent of each other */}
 

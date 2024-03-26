@@ -72,7 +72,24 @@ const CountButton = (props) => {
     console.log("components re-rendered")
     // everytime you update the state, this whole page(this whole file will get execute agin)
 
-    return <div>CountButton
+
+    // now whenever we want to style the component,
+    // you need to pass the style object
+    const divStyle = {
+        color: "blue",
+        /* this is an object, 
+        as you can see this is not CSS you see often*/
+        border: "1px solid black",
+        borderRadius:"10px",
+    }
+    const buttonStyles = {
+        background: props.buttonColor,
+        borderRadius:"10px",
+    }
+
+
+
+    return <div style = {divStyle}>CountButton
         {/* <button onClick={
             () => {alert("Clicked")}
         }>+1</button> here I did arrow function,but you can do whatever */}
@@ -81,7 +98,7 @@ const CountButton = (props) => {
         {/* now instead of say +1, you could say plus incrementBy
         <button onClick={handleClick}>+1</button> */}
         {/* in order to let the button not show +1 */}
-        <button onClick={handleClick}>+{props.incrementBy}</button>
+        <button style = {buttonStyles} onClick={handleClick}>+{props.incrementBy}</button>
         {/* onClick is called props or attribute  */}
 
 

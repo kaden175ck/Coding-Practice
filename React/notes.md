@@ -54,3 +54,7 @@ Don’t need to open node_modules folder, massive folder
 * and component will inform what it does
 * props is short for properties
 * props are how components talk to each other
+
+## difference between props and states
+* props are external value that get passed into the component, just like argument
+* states are value that are internally?
