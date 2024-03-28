@@ -24,6 +24,12 @@ const SearchBar = () => {
         // alert("Changed")
     }
 
+
+    const handleClearClick = () => {
+        setSearchValue("")
+        // setSearchValue("text cleared")
+    }
+
     return(
 
     <div>
@@ -34,6 +40,9 @@ const SearchBar = () => {
 
         {SearchValue} 
         {/* SearchvAlue is stored as piece of state */}
+
+        {/* create clear button to clear all the text */}
+        <button onClick={handleClearClick}>Clear</button>
 
     </div>
     // in HTML we take input like 
