@@ -58,3 +58,8 @@ Don’t need to open node_modules folder, massive folder
 ## difference between props and states
 * props are external value that get passed into the component, just like argument
 * states are value that are internally?
+
+
+## what is State? 
+* a piece of state is a value end up being updated in UI
+* whenever piece of state update, we might want the user see
