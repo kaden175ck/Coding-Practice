@@ -2,6 +2,11 @@ import React from 'react'
 import CountButton from './CountButton/CountButton'
 // render the countbutton inside the App component
 
+// everytime you create a component
+// you need to import here in APP.js
+import SearchBar from './SearchBar/SearchBar'
+
+
 
 const App = () => {
     // const myItem = "item3" 
@@ -33,7 +38,11 @@ const App = () => {
             {/* this is how you reuse component easy af,
             and they are independent of each other */}
 
+
+
+            <SearchBar />
         </div>
+        
     )
 }
 
