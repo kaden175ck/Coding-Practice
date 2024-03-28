@@ -1,1 +1,0 @@
-# This repository contains basic network concepts and usage of network tools.
