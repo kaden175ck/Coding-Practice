@@ -63,3 +63,6 @@ Don’t need to open node_modules folder, massive folder
 ## what is State? 
 * a piece of state is a value end up being updated in UI
 * whenever piece of state update, we might want the user see
+
+
+## what is a map function?
