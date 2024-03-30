@@ -4,19 +4,20 @@ import './SearchBar.css';
 
 // have a collection of items and want to show them one by one to the user
 
-const products = [
-    "toothpaste",
-    "toothbrush",
-    "shampoo",
-    "mouthwash",
-    "floss",
-    "soap",
-]
+// pass these in to the search bar for reusability as props
+// const products = [
+//     "toothpaste",
+//     "toothbrush",
+//     "shampoo",
+//     "mouthwash",
+//     "floss",
+//     "soap",
+// ]
 
 
 
 // craete out component/function
-const SearchBar = () => {
+const SearchBar = (props) => {
 
     const[SearchValue, setSearchValue] = useState("")
     // all these info/user input on searchbar
@@ -56,7 +57,21 @@ const SearchBar = () => {
     console.log(shouldDisplayButton)
 
 
+
+    // console.log(
+    //     products.filter((product) => {
+    //         return product.includes("mouth")
+    // })
+    // )
+    const filterProducts = props.propsProducts.filter((product) => {
+        return product.includes(SearchValue)
+    })
+
+
     return(
+
+
+
 
     <div>
         Your Search Bar: 
@@ -82,7 +97,7 @@ const SearchBar = () => {
         {/* we render the product here */}
 
        {/* <ul>you can also wrap this product map with ul</ul> */}
-        {products.map(
+        {filterProducts.map(
             (product) => {
                 return <div key={product}>{product}</div>
                 // take all those products map them to div

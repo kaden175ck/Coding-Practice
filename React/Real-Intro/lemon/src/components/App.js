@@ -6,6 +6,7 @@ import CountButton from './CountButton/CountButton'
 // you need to import here in APP.js
 import SearchBar from './SearchBar/SearchBar'
 
+// const products = 
 
 
 const App = () => {
@@ -39,8 +40,24 @@ const App = () => {
             and they are independent of each other */}
 
 
+            {/* we passed the props that takes the products */}
+            <SearchBar propsProducts={[
+                "toothpaste",
+                "toothbrush",
+                "shampoo",
+                "mouthwash",
+                "floss",
+                "soap",
+                ]}
+            />
 
-            <SearchBar />
+            <SearchBar 
+                propsProducts={[
+                "bike",
+                "bike lock",
+                "bike helmet",
+                ]}
+            />
         </div>
         
     )

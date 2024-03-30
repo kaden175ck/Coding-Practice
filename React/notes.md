@@ -66,3 +66,9 @@ Don’t need to open node_modules folder, massive folder
 
 
 ## what is a map function?
+## what is a filter function?
+## why props? why reuseable component?
+
+## another react hook, useEffect
+
+## how to make http request to get data from external source
