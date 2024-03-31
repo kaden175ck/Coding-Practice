@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CountButton.css"
 
 
@@ -87,6 +87,29 @@ const CountButton = (props) => {
         background: props.buttonColor,
         borderRadius:"10px",
     }
+
+
+    useEffect(() => {
+        console.log("this will only called once say hey is rendered!")
+       // the reseaon why this is only called once because no content in array
+    }, [])
+
+
+    
+
+    // its part of the react lifecycle
+    useEffect(() => {
+        console.log(currentCount)
+        if(currentCount === 20){
+            alert("Count is 20"	)
+            // setCurrentCount(0)
+        }
+        console.log("useEffect function called and currentcount is update")
+        // this will run everytime the component is rendered
+    }, [currentCount])
+    // this array is called dependency array
+    // [currentCount, secondpieceof states...]
+
 
 
 

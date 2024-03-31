@@ -70,5 +70,7 @@ Don’t need to open node_modules folder, massive folder
 ## why props? why reuseable component?
 
 ## another react hook, useEffect
+* allow us to run code whenever peice of state gets updated
+
 
 ## how to make http request to get data from external source
