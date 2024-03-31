@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import CountButton from './CountButton/CountButton'
 // render the countbutton inside the App component
 
@@ -11,6 +11,13 @@ import SearchBar from './SearchBar/SearchBar'
 
 const App = () => {
     // const myItem = "item3" 
+
+    // create a piece of state:
+    // inside usestate you pass the initial/default value
+    // in this case just empty array
+    const [productsState, setProductsState] = useState([])
+
+
 
     return (
         // <ul>
@@ -40,6 +47,7 @@ const App = () => {
             and they are independent of each other */}
 
 
+    {/* when these products come from external source we need useEffect */}
             {/* we passed the props that takes the products */}
             <SearchBar propsProducts={[
                 "toothpaste",
