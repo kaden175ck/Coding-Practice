@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import CountButton from './CountButton/CountButton'
 // render the countbutton inside the App component
+import Button from "./Button/Button"
+
 
 // everytime you create a component
 // you need to import here in APP.js
@@ -85,6 +87,16 @@ const App = () => {
         //     <li>{myItem}</li>
         // </ul>
         <div>
+            last button that use child, not so common
+            <Button buttonText="My button text"/>
+            <Button buttonText="My button text2"/>
+            <Button buttonText="My button text3"/>
+            <Button>Children button here</Button>
+            <Button>Children button here2</Button>
+            <Button>Children button here3</Button>
+            {/* this is just another type of props called children props */}
+
+
             app
             {/* you can also use the traitional HTML way:<CountButton></CountButton> */}
             
