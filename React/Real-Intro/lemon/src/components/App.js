@@ -21,6 +21,38 @@ const App = () => {
 
 
     useEffect(()=>{
+
+
+
+
+
+
+        fetch('https://fakestoreapi.com/products')
+        .then(res=>res.json())
+        .then((productsArray)=> {
+            // console.log(json)
+            // this map function will map items in one array to another array
+            const newProductsState = productsArray.map(
+                (product)=>{
+                    return product.title
+                    // so this newProductsstate will be an array
+                    // that only contain title
+                }
+            )
+            setProductsState(newProductsState)
+        
+        })
+
+
+
+
+
+
+
+
+
+
+
         // console.log("components mounted")},[]
         setTimeout( () => {
                 setProductsState([
