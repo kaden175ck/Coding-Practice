@@ -74,3 +74,12 @@ Don’t need to open node_modules folder, massive folder
 
 
 ## how to make http request to get data from external source
+
+
+false? "its true": "its false"
+return its false
+true? "its true": "its false"
+return its true
+
+const isitrue = 5>3? "its true": "its false"
+return its true

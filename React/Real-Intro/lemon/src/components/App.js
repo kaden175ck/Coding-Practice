@@ -16,7 +16,34 @@ const App = () => {
     // inside usestate you pass the initial/default value
     // in this case just empty array
     const [productsState, setProductsState] = useState([])
+    // we create a piece of states called productsState
+    // initially just an empty array
 
+
+    useEffect(()=>{
+        // console.log("components mounted")},[]
+        setTimeout( () => {
+                setProductsState([
+                    "tootha",
+                    "toothb",
+                    "toothc",
+                    "brushabc",
+                ])
+
+            }, 2000 // after 2000ms, this code will exec
+            // when you load the page you will see its blank
+            // after 2 sec all these will show up
+            // this is just simulating amount of time
+            // that you might need to ftech external data
+            // maybe large datasets
+        )
+    },[]
+        // I want productstates don't load untill user 
+        // actually seeing something
+    )
+
+
+    const hasProdcuts = productsState.length > 0
 
 
     return (
@@ -48,16 +75,25 @@ const App = () => {
 
 
     {/* when these products come from external source we need useEffect */}
+
+
+      {/* or you can call this conditonal rendering       */}
+{/* this will show loading then 2sec later stuff will rendered done */}
+{hasProdcuts ? <SearchBar propsProducts={productsState} />
+            : 'Loading'}
+
+            
             {/* we passed the props that takes the products */}
-            <SearchBar propsProducts={[
-                "toothpaste",
-                "toothbrush",
-                "shampoo",
-                "mouthwash",
-                "floss",
-                "soap",
-                ]}
-            />
+               {/* <SearchBar propsProducts={ */}
+            {/* //     productsState
+            //     // ["tootha",
+            //     // "toothb",
+            //     // "toothc",
+            //     // "brush",
+
+            //     // ]
+            // }
+            // /> */}
 
             <SearchBar 
                 propsProducts={[
