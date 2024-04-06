@@ -10,3 +10,27 @@
 
 # Input: ["2", "1", "+", "3", "*"]
 # Output: 9 (Explanation: ((2 + 1) * 3) = 9)
+
+def evaluate_rpn(expression):
+    stack = []
+    for token in expression:
+        if token in "+-*/":
+            # Pop the top two elements
+            b, a = stack.pop(), stack.pop()
+            
+            # Apply the operation
+            if token == '+':
+                result = a + b
+            elif token == '-':
+                result = a - b
+            elif token == '*':
+                result = a * b
+            elif token == '/':  # Ensure integer division matches problem statement
+                result = int(a / b)
+                
+            # Push the result back onto the stack
+            stack.append(result)
+        else:
+            # Push the number onto the stack
+            stack.append(int(token))
+    return stack[0]
