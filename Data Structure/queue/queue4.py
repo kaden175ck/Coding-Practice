@@ -1,0 +1,1 @@
+# * **Open the Lock  ([https://leetcode.com/problems/open-the-lock/](https://leetcode.com/problems/open-the-lock/))**  Another excellent BFS problem using a queue to explore possible combinations and find the shortest path.
