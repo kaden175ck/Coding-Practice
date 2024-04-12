@@ -1,4 +1,8 @@
-# * **Implement Stack using Queues ([https://leetcode.com/problems/implement-stack-using-queues/](https://leetcode.com/problems/implement-stack-using-queues/))**  This is a classic warm-up to help you understand the interplay between queue (FIFO) behavior and stack (LIFO) behavior.  
+# * **Implement Stack using Queues 
+#([https://leetcode.com/problems/implement-stack-using-queues/]
+#(https://leetcode.com/problems/implement-stack-using-queues/))
+## This is a classic warm-up to help you understand the interplay between queue (FIFO) behavior 
+## and stack (LIFO) behavior.  
 
 
 
@@ -31,16 +35,25 @@
 
 class MyStack:
     def __init__(self):
-        # Initialize your data structure here.
+        self.queue1 = []  # Main queue
+        self.queue2 = []  # Temporary queue
 
     def push(self, x: int) -> None:
-        # Push element x onto stack.
+        # Push onto queue2 to maintain recent elements at the front
+        self.queue2.append(x)  
+
+        # Move all elements from queue1 to queue2
+        while self.queue1:
+            self.queue2.append(self.queue1.pop(0))
+
+        # Swap queue names  (queue2 now becomes the main queue)
+        self.queue1, self.queue2 = self.queue2, self.queue1 
 
     def pop(self) -> int:
-        # Removes the element on top of the stack and returns that element.
+        return self.queue1.pop(0)  # Pop from the front of queue1
 
     def top(self) -> int:
-        # Get the top element.
+        return self.queue1[0]  # Top is at the front of queue1
 
     def empty(self) -> bool:
-        # Returns whether the stack is empty.
+        return not self.queue1 
