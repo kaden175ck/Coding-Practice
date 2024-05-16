@@ -5,8 +5,12 @@
 # stack.append(30)  
 
 # print(stack.pop())  # Output: 30
-# print(stack[-1])    # Output: 20 (peek)
-# print(len(stack))   # Output: 2
+# print(stack[-1])    # Output: 20 (peek) 
+# stack[-1] uses negative indexing to access the last element in the list. 
+# Since the last (and now top) element is 20, this is the value printed.
+
+
+# print(len(stack))   # Output: 2 because 30 is poped
 
 
 
