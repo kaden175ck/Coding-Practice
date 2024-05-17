@@ -5,8 +5,6 @@
 ## and stack (LIFO) behavior.  
 
 
-
-
 # how to create a stack using just queues. 
 # A stack, you might recall, follows the LIFO (Last In, First Out) principle, 
 # similar to a stack of plates. The one you add last is the first one you can remove.
@@ -39,7 +37,7 @@ class MyStack:
         self.queue2 = []  # Temporary queue
 
     def push(self, x: int) -> None:
-        # Push onto queue2 to maintain recent elements at the front
+        # Push onto queue2(Temporary) to maintain recent elements at the front/ Top
         self.queue2.append(x)  
 
         # Move all elements from queue1 to queue2

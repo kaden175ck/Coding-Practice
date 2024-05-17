@@ -20,6 +20,7 @@ def daily_temperatures(temperatures):
 
     for i, temp in enumerate(temperatures): # index, then temperature, (index, temperature)
         while stack and temp > stack[-1][0]:  
+            # while stack is true, means stack is not empty
             # -1 get the last element, this case is the top element in the stack
             # because we are storing tuples in stack
             # 0 would give the temperature, 1 would give the indexs
@@ -29,6 +30,7 @@ def daily_temperatures(temperatures):
             _, prev_index = stack.pop()
             # choosing to ignore the first element in the tuple, which is temp,
             # pop the index, the index part is assigned to prev_index
+            # The _ is used to discard the temperature part of the tuple, as we only need the index.
 
             result[prev_index] = i - prev_index
         stack.append((temp, i))
