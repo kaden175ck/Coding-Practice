@@ -23,7 +23,8 @@ class Stack:
         self.items.append(item)
 
     def pop(self):
-        if not self.items:  # Check if empty
+        if not self.items:  # If stack is empty, then raise Exception. 
+            # Empty means self.items is False,
             raise Exception("Stack is empty")
         return self.items.pop()
 
