@@ -16,24 +16,36 @@
 
 def daily_temperatures(temperatures):
     result = [0] * len(temperatures)
-    stack = []  # Stack of (temperature, index) pairs
+    # Initializes a list called result with the same length as the input. 
+    # Each element in result is set to 0. [0,0,0,0,0]
 
-    for i, temp in enumerate(temperatures): # index, then temperature, (index, temperature)
+
+    stack = []  # Each element in the stack is a (temperature, index) pair.
+
+    for i, temp in enumerate(temperatures): 
         while stack and temp > stack[-1][0]:  
-            # while stack is true, means stack is not empty
-            # -1 get the last element, this case is the top element in the stack
-            # because we are storing tuples in stack
-            # 0 would give the temperature, 1 would give the indexs
-            # so you are comparing the temp
+    # while stack is not empty AND
+    # the current temperature (temp) > the temperature of the last element in the stack (stack[-1][0]).
+    # if the current temp is higher than the temp at the Top of the Stack, then we found the warmer day 
+    
+            
 
 
-            _, prev_index = stack.pop()
-            # choosing to ignore the first element in the tuple, which is temp,
-            # pop the index, the index part is assigned to prev_index
-            # The _ is used to discard the temperature part of the tuple, as we only need the index.
+            _, prev_index = stack.pop() # pop the(temperature, index) pair from the top of the stack.
+            # _ is choosing to ignore the first element(the temp) in the tuple, which is temp,
+            # pop the second part in the tuple, and assigned to prev_index
 
             result[prev_index] = i - prev_index
+            # Calculate the difference in indices between the current day (i) 
+            # and the day of the popped temperature. 
+            # This difference is the number of days to wait for a warmer temperature.
+
+            # Store this difference in the result list at the popped temperature's index.
+
+
         stack.append((temp, i))
-        # this tuples are stored in the stack
+        # Regardless of whether we popped anything, 
+        # push the current day's (temperature, index) pair onto the stack.
+        
 
     return result
