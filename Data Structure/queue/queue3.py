@@ -1,4 +1,4 @@
-# * **Rotting Oranges ([https://leetcode.com/problems/rotting-oranges/](https://leetcode.com/problems/rotting-oranges/))**  
+# Rotting Oranges (https://leetcode.com/problems/rotting-oranges/)
 # A straightforward application of a queue for Breadth-First Search (BFS). 
 # Think of it as the infection spreading step-by-step.
 # Approach: Use a queue for multi-source BFS. Treat rotten oranges as initial sources, 
