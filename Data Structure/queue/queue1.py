@@ -31,7 +31,7 @@
 
 
 from collections import deque
-
+s
 class MyStack:
     def __init__(self):
         self.queue1 = deque()  # Main queue
