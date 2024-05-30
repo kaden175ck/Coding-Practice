@@ -21,6 +21,7 @@ class MyStack:
 
     # `queue1` 用作主队列，用于存放栈中的元素，而 `queue2` 是临时队列，用于辅助操作。
 
+    # 注意push是push到stack top level
     def push(self, x: int) -> None:
         self.queue2.append(x)
         # append(x): 这是队列的一个方法，用于将元素 x 添加到队列Q2的末尾。
