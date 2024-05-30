@@ -1,19 +1,15 @@
 # * **Implement Stack using Queues 
 #([https://leetcode.com/problems/implement-stack-using-queues/]
-# how to create a stack using just queues. 
-# A stack follow the LIFO (Last In, First Out) principle, 
-# similar to a stack of plates. The one you add last is the first one you can remove.
-
 # Design a data structure that simulates the functionality of a stack 
 # using only queue operations (enqueue, dequeue, etc.).
 
 # **What is a Stack?**
-# * **LIFO:** A stack operates on the principle of LIFO (Last-In, First-Out).  
-# * **Operations:** Key stack operations include:
-#     * **push(x):** Add element 'x' to the top.
-#     * **pop():** Remove and return the top element.
-#     * **top():** Return the top element without removing it.
-#     * **empty():** Check if the stack is empty.
+# **LIFO:** A stack operates on the principle of LIFO (Last-In, First-Out).  
+# **Operations:** Key stack operations include:
+# **push(x):** Add element 'x' to the top.
+# **pop():** Remove and return the top element.
+# **top():** Return the top element without removing it.
+# **empty():** Check if the stack is empty. 
 
 from collections import deque
 # we use deque becuase we want more flexibility and able to deque from both ends
