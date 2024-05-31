@@ -1,2 +1,2 @@
-# 完全二叉树的节点个数（Count Complete Tree Nodes）** - LeetCode 题号 222
+# 完全二叉树的节点个数（Count Complete Tree Nodes）
 # 虽然这个问题可以用递归方式解决，但使用队列来层次遍历完全二叉树同样是一个有效的方法。
