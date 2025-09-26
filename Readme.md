@@ -1,1 +1,1 @@
-## This repository is my study notes. It's where I practice the basics of Computer Science. Though it contains no projects, you may find the notes helpful.
+## just something~something~something~Someday I wanna wear a Starry Crown
