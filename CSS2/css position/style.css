@@ -1,0 +1,87 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  min-height: 200vh;
+}
+
+.outer-container {
+  border: 3px dashed #000;
+  width: 75vw;
+  height: 85vh;
+  margin: 40px auto;
+
+  /* position: relative;其实只有下面的position: relative;会生效，应为子类会挑选理他最近的父类 */
+  
+}
+
+.inner-container {
+  border: 2px solid #00f;
+  width: 40vw;
+  height: 50vh;
+  margin: 200px auto;
+
+
+  position: relative;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  color: #fff;
+  padding: 1rem;
+}
+
+
+
+/* absolute value must have a parent class, 如果没有父系类，他就会默认为窗口起点 */
+/* 所以我们在父类outer container去设置一个postion relative，告诉这个子类，你要以父类为目标 */
+.absolute{
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* 其实topleft也可以不标注，因为都是默认为左上起点 */
+
+
+/* 这个也是自动就看起父类，然后以最近的父类为坐标了 */
+.relative{
+    background-color: red;
+    position: relative;
+    top:100px;
+    left: 100px;
+    /* z-index: 1; */
+}
+
+
+/* 你会注意到fixed的这个元素会盖住在哪个位置的元素，这个跟HTML的顺序有关系
+如果不想盖住，需要通过调整z-index:1;去调节比如上面这样 */
+.fixed{
+    background-color: greenyellow;
+    position: fixed;
+    top: 100px;
+}
+/* 你还会注意到你滑动鼠标，这个fixed 他就在这个地方，不会变,他不会像sticky一样
+随着你的鼠标向下移，他想上移，所以这是不一样的 */
+
+
+/* 注意我们这里设置了top0，这意味着这个方块会一直向上易懂就跟小广告一样，但是当窗口超过了container */
+/* 哪怕我们页面还可以向下，这个方块也会消失 */
+.sticky{
+    background-color: goldenrod;
+    position: sticky;
+
+    top: 0px;
+
+}
+
+

@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* || GENERAL STYLES */
+body {
+  font: 1.5rem "Nunito", sans-serif;
+  min-height: 100vh;
+
+
+
+
+
+  background-color: grey;
+  background-image: radial-gradient(whitesmoke, grey);
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* orentation:landscape 横屏 */
+/* min-aspect-ration:16/9,7/4 宽比高的比例*/
+/* @media screen and(min-width: 481px){
+
+} */
+
+header,nav,main,footer{
+    display: grid;
+    place-content: center;
+
+    grid-template-columns: 100%;
+    text-align: center;
+}
+
+header,footer{
+    position: sticky;
+    background-color: black;
+    color: white;
+}
+
+
+
+header{
+    top:0;
+}
+
+
+nav{
+    background-color: aliceblue;
+    color: black;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+
+}
+
+
+main{
+    flex-grow: 1;
+}
+
+footer{
+    bottom:0;
+}
+
+ 
+
+/* small screen */
+@media screen and (min-width: 576px){
+    body{
+        background-color: green;
+        background-image: radial-gradient(whitesmoke, green);
+    }
+
+    nav{
+        display:none;
+    }
+}
+
+
+
+
+/* medium */
+@media screen and (min-width: 768px){
+    body{
+        background-color: gold;
+        background-image: radial-gradient(whitesmoke, gold);
+    }
+
+}
+
+
+/* large */
+@media screen and (min-width: 992px){
+    body{
+        background-color: firebrick;
+        background-image: radial-gradient(whitesmoke, firebrick);
+    }
+
+}
+
+/* Xlarge */
+@media screen and (min-width: 1200px){
+    body{
+        background-color: purple;
+        background-image: radial-gradient(whitesmoke, purple);
+    }
+
+}
+
+
+/* MOBILE DEVICE LANDSCAPE */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4){
+    body{
+        background-color: blue;
+        background-image: radial-gradient(whitesmoke, blue);
+    }
+
+    h1,h2{
+        font-size: 1.5rem;
+    }
+
+    nav{
+        display:none;
+    }
+
+}

@@ -1,0 +1,131 @@
+/* CSS 不会给你报错，所以有时候可以考虑用CSS validator*/
+/* p {
+    font-size: 64px;
+    color:red;
+} */
+
+/*unisversal*/
+/* *{
+    font-family: monospace;
+} */
+
+/* *{
+    border: 3px solid black;
+} */
+
+
+html{
+     font-size: 22px;/*这个和下面的body一样*/
+}
+
+/*记住这些body html元素都是one per page,不会再后面出现了*/
+
+main{
+    font-family: monospace;
+}
+
+body{
+    font-size: 22px; /*这个会被所有子类继承*/
+    border: 3px solid black; /*这个不会，只会在body上*/
+    /* color: #FFFFFF;
+    color: rgb(255,255,255); */
+}
+
+/* 表达颜色的时候可以直接手打颜色，也可以用rgb
+类似color：rgb（0，255，0）这个就是纯绿色，
+因为rgb是red green blue 
+如果是rgba，这个a如果调成0，就是透明的，1就是实心，也可以0.5
+a 是alpha chanel
+也可以用hexa value
+比如：color：#FFFFFF 是白色，000000是黑色
+其实跟rgb一样，两个字节是一个颜色
+FF是最大，00是最小，类似255，和0
+FF0000=（255，0，0）也就是red
+FFFFFF=)255,255,255 也就是white
+00FF00 ==green
+VScode有那种画板可以玩，可以选择比如hsl饱和度什么的
+
+对比度也很重要，网上有很多工具比如contrast checker之类的
+选颜色网上也有工具
+*/
+
+/* 也可以通过这种方式继承
+button, input, textarea, select{
+    font: inherit;
+
+} */
+
+
+
+
+p{
+    color:purple;
+}
+/*css像瀑布cascade，所以如果在这里再加一个p把颜色改成blue之前的purople就会失效*/
+/*但是这种element selector优先级不高，就算把他们放在后面
+只要前面出现一个class selector，这些element selector也不会执行
+尽管css从上到下执行像瀑布*/
+
+/*如果我想在这个段落把一些东西转换为大写，但一般不用这个方法*/
+p span {
+    /*这是把小写转换为大写，并且高光*/
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+/*一般用这个方法class*/
+.highlight{
+    text-transform: uppercase;
+    background-color: gold;
+
+}
+
+/*body和p都是普通selector，然后更细致的是class */
+/*你会注意到class overwrite 这个简单的段落，因为他更加specific */
+.gray {
+    color:gray;
+}
+
+/* 再更加细致的是id selector，更大的执行顺序,但注意id是unique*/
+#second{
+    font-style: italic;
+}
+/*但是id selector尽量别用再css文件里！！！*/
+
+
+/*也可以做group selector,但注意h2必须是再h1 nest里面*/
+h1, h2{
+    color:blue;
+
+}
+
+
+/* 先后顺序：
+普通element selector< class selector < id selector(尽量不用id sele) */
+
+/* 一个优先级作弊方法就是用
+color:purple !important;可以让这个最优先，但不是好的习惯 */
+
+/* 网上有那种优先级比较的机器
+一般都是普通元素，类，id这个顺序 */
+
+
+/*absoulte unit commonly use pix*/
+p{
+    font-size: 32px;
+}
+
+/*default browser font size is usually 16 px*/
+
+h1 {
+    border:2px dashed red;
+    width: 50%;
+    font-size: 50%;
+    padding:0.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- noindex, nofollow 告诉搜索引擎：不要索引这个页面，也不要追踪页面上的链接。
+        大多数搜索引擎（如 Google、Bing、Yahoo 等）在爬到该页面时会尊重此设置，不会将它纳入搜索结果 -->
+
+
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex, nofollow" />
+
+
+        <!--head section store meta data, not gonna show up in the content of your webstite-->
+        <title>CatPhotoApp</title>
+        <!--css and js also goes here-->
+
+    </head>
+    <body>
+        
+        <h2>CatsApp</h2>
+        <main>
+
+            <h3>Cat photo</h3>
+            <!--here is the comment, add link to cat photo-->
+            <p>
+                Click here to view more <a href = "#" target="_blank"> cat photos</a>
+                <!-- tagert blank open a new tab-->
+            </p>
+            <!--复制图片地址 或英文为 “Copy image address”。
+            如果没有这个选项，可以选 “在新标签页中打开图片”，然后复制新页面的地址栏链接-->
+
+            <!-- # is just a place holder-->
+            <p>
+                Click here to view what happens after you <a href = "#" target="_blank">place a # in href and target to blank tab</a>
+            </p>
+
+            <!--正常的去网页的方式<a href = "https://catphotos.com"> cat photos</a>-->
+            <a href="#"> 
+                <!--目的是为了让图片出现小手，但是点击不会发生任何事情，类似于刷新页面-->
+                <img src="https://vetmarlborough.co.nz/wp-content/uploads/cat-facts.jpg" alt="a cat image">
+            </a>
+
+
+
+            <h3>Cat lists</h3>
+
+
+            <div class="list">
+                <p>Things cats <em>love:</em></p>
+                <ul>
+                    <li>cat nip</li>
+                    <li>laser pointers</li>
+                    <li>lasagna</li>
+                </ul>
+                <img src="lasgn.jpg" alt="pic of lasgna">
+
+
+                <p>things cars <strong>hate:</strong></p>
+                <ol>
+                    <li>flea treatment</li>
+                    <li>thunder</li>
+                    <li>other cats</li>
+                </ol>
+
+
+            </div>
+
+
+            <img src="cat.jpg" alt = "cat pic">
+
+            <form action="/submit-cat-photo">
+                <input type="text" placeholder="cat photo URL" required>
+                <br>
+
+                <!--the for is for best practice, for name is match with id name, but you could get rid of the for name if you want-->
+                <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor"> indoor</label>
+                <br>
+                <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor"> outdoor</label>
+                <br>
+
+                <label for="loving"><input id="loving" type="checkbox" name="personality" checked> loving</label>
+                <br>
+
+                <label for="lazy"><input id="lazy" type="checkbox" name="personality"> lazy</label>
+                <br>
+
+                <label for="energy"><input id="energy" type="checkbox" name="personality"> energy</label>
+                <br>
+
+
+
+
+
+                <button type="submit">Submit</button>
+
+
+
+            </form>
+                
+
+                
+
+
+            
+
+
+        </main>
+
+        <footer>
+            <!--not gonna have impact on your page-->
+            <p><small>no copyright-<a href="https://kaden175ck.github.io/">hao</a></small></p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+/* 如果在google fonts里选了import，在这里就可以import */
+/* 像是这样：@import url（。。。）就可以直接放在css里，而不是放在html里了 */
+
+
+/* typography is the way to present text and arrange text*/
+body{
+    padding: 10%;
+    font-size: 2rem;
+    /* color:purple; */
+
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* input和button不会主动继承，所以需要明确声明字体,这个章节不搞这个先*/
+/* input,button{
+    font:inherit;
+} */
+
+#TypographyLesson{
+    text-decoration: line-through;
+    text-transform: uppercase;
+    /* 这些都会叠加 */
+
+    text-align: justify;
+    text-indent: 5em;
+    /* 一般indent两个字所以，2em就行了 */
+
+    line-height: 1.5;
+
+    /* letter-spacing: 1em; */
+
+    /* word-spacing: 2em; */
+
+    font-weight: 900;
+
+    font-style: italic;
+
+
+}
+
+
+/* 装饰Link从这里开始stlying links start here */
+a{
+    text-decoration: none; 
+    cursor:pointer;
+    /* curosr的pointer也是default */
+
+    color:hsl(0, 100%, 50%);
+
+}
+
+
+/* psedo class represent current state of an element 
+在这里所有的被访问过的link都会变成紫色，其实紫色本来就是default数值
+还有一点注意就是这种pseudo 算是一种class，所以他们的优先级也比一般元素高
+就是说就算你这个visited在普通的a selector之后，你这个也是优先执行
+所以所有的pseudo class的优先级一定要重视！！！在我们这个例子里，如果把hover放到visited前面，那某些visited的link就不会有hover的颜色了，可以实验
+*/
+a:visited{
+    color:purple;
+}
+
+/* focus是给键盘使用者用的，需要按tab建 */
+a:hover, a:focus {
+    color: hsl(120, 100%, 50%);
+    opacity: 0.8;
+
+    /* 下面两个都行，，都是给选中focus用的 */
+    /* outline: 2px solid yellow; */
+    background: goldenrod;
+
+}
+
+
+/*active 是鼠标点击link的一瞬间的颜色*/
+a:active{
+    color:red;
+}
+
+
+
+
+
+
+
+

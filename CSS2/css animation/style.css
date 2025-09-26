@@ -1,0 +1,56 @@
+a:link{
+    color: blueviolet;
+}
+
+a:visited{
+    color: aqua;
+}
+
+a:hover{
+    color: red;
+}
+
+button:hover{
+    color:blue
+}
+
+button:active{
+    color:yellow
+}
+
+#box1{
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    font-size: 220px;
+    text-align: center;
+
+
+    /* animation: mySlide;
+    animation-duration: 5s;
+    animation-iteration-count: infinite; */
+}
+
+
+#box1:hover{
+    animation: mySlide;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation: myRotate;
+    animation-duration: 5s;
+}
+
+
+
+@keyframes mySlide{
+    from{margin-left: 100%;}
+    to{margin-left: 0%;}
+    
+
+}
+
+
+
+@keyframes myRotate{
+    100%{transform: rotateX(360deg)}
+}

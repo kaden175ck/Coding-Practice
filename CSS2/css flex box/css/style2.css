@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  min-height: 400px;
+  margin-inline: auto;
+  border: 1px solid #000;
+
+
+  display: flex; 
+  /* 就变成行元素了，不像之前的div是列排列 */ 
+
+  /* justify-content: flex-end; */
+
+
+
+
+
+
+  justify-content: center;
+  gap: 1rem;
+
+  /* justify-content: space-between; */
+
+  /* justify-content: space-evenly; */
+
+  /* align-items: flex-start; */
+  /* align-items: flex-end; */
+  align-items: center;
+
+
+  /* flex-direction: column; */
+  /* flex-direction: row; */
+
+  /* flex-direction: row-reverse; */
+
+
+
+  /* flex-wrap: wrap; */
+  /* this avoid overflow */
+
+
+  /* flex-direction和flex-wrap的组合叫做flex-flow ,default是no wrap*/
+  /* flex-flow: row nowrap; */
+  /* 这里原本是wrap，最后改成了nowrap */
+  flex-flow: row-reverse wrap;
+  /* rowrever也是后期加的为了测试order */
+
+
+
+  /* align-content: flex-end; */
+  /* align-content: space-between; */
+  align-content: space-evenly;
+  /* align-content: center; */
+
+} 
+
+
+
+.box {
+  /* min-width: 100px;  */
+
+  /* min-height: 100px; */
+  height: 100px;
+
+  
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+
+
+
+/* 可以用这三个属性去center任何element inside the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+/* shrink跟grow刚好相反 */
+  flex-shrink: 1;
+
+  flex-grow: 1;
+/* min-width: 100px; 用这两个都会形成正方体 */
+  flex-basis: 150px;
+
+  /* flex-grow: 1; */
+  /* 同比例生长 */
+
+  
+}
+
+/* 然后我们把56行也改为nowrap */
+
+.box:nth-child(2){
+  /* flex-grow: 2; */
+  /* 第二个格子就会比第一个生长的大 */
+
+  /* flex-grow: 2;
+  flex-shrink: 2; */
+  flex: 2 2 150px;
+
+  /* order: 4; 移到了最后
+  order: 0; 回到原位 */
+
+  order: -1;
+  /* 回到第一 ，但是一定要注意order是个rowreverse有关系的！！！*/
+}
+
+/*  
+shrink，basis，grow都可以放到一个property里面
+例如：flex: 1 1 250px,就和下面给出的结果一样
+shrink, grow, basis，
+flex-shrink: 1;
+flex-grow: 1
+flex-basis: 100px; */

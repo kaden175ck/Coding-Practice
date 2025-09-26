@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /
+
+
+这意味着对所有搜索引擎机器人（User-agent: *）禁止爬取当前整个站点（Disallow: /）。
+不过，有些搜索引擎、爬虫或第三方工具不一定会全部遵守，但主流搜索引擎都 generally 会配合。
+将 robots.txt 文件放在你代码的根目录（和 index.html 同一级）。
+上述做法只是告诉爬虫“请不要收录我”。但任何知道链接的人，还是能直接访问到你的页面。
+
+如果你有多个 HTML 页面，也都要在其 <head> 部分加上 <meta name="robots" content="noindex, nofollow" />，或在 robots.txt 里统一禁止。

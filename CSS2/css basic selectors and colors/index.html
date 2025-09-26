@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    
+
+
+    <!--这段block style 和 外面css文件一样，只不过那个在最后一个那个运行，
+    我们这个情况下，这段style block就不会运行，因为他在link css前面-->
+    <style>
+        
+        p{
+            color:green;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+</head> 
+
+
+<body>
+    
+    <p>I'm learning CSS!</p>
+
+    <!--bad practice-->
+    <p style="color: red;"> Don't use in line CSS, this over write everything, 因为直接加入到HTML</p>
+    
+    <h1>CSS Selector</h1>
+
+        <h2>A1</h2>
+            <p id="first" class="gray">DSAdasdasdasdasdasdas</p>
+        <h2>A2</h2>
+            <p id="second" class="gray">DSAdasdasdasdasdasdas</p>
+        <h2>A3</h2>
+            <p id="third" class="gray">dsadasdasdasdas<span class="highlight">dasdas</span></p>
+
+    <h1>CSS Units</h1>
+        <p>dsadsadsadsadasdasdasdasdsadasdsa</p>
+
+
+    
+</body>
+</html> 
+

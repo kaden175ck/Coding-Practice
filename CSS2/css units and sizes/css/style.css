@@ -1,0 +1,130 @@
+/* p{
+    font-size: 32px;
+} */
+/*absoulute font size or default font size for browser usually 16px,但一般来讲字体大小不用px绝对值*/
+/*应为用了之后，比如用了 html fontsize 32px，那用户在浏览器主页设置字体大小，字体就不会变
+所以有时候移动端和网页用到px的时候要小心，因为px是固定的*/
+
+/* 如果这里不标注那就是假设是100%,因为header默认width100%，block 元素一般都是100%
+header {
+    width:50%; 
+} */
+
+/*因为header是h1的parents所以 h1的width的50%其实是header的50%，但是header也取了整页的50%所以相当于h1占了25%*/
+/* h1{
+    border: 2px dashed red;
+    width: 50%;
+} */
+/*百分比永远是对比着看的,relative to the partents*/
+
+
+
+
+
+/*font size 一般用rem*/
+/*我们一般不在root 里，比如html{font这种，我们一般不这样干，因为这样浏览器就无法调节字体大小了*/
+
+/*1rem是default,2是double，一般就是32pix，因为浏览器默认一般是16
+虽然rem也是一个relative单位，p在main里，就算你现在 main{ font2rem}字体也不会改变，
+应为rem只relative to the root（root是浏览器define的），这里的root就是比如你写了一个html{font2rem}那这样就会是4倍
+虽然em也可以，比如2em，少一个r，但尽量别这样用，容易出现意想不到的放大
+*/
+
+
+/* 什么情况下用em不是rem呢,这里的padding就会使3个字体的大小，所以在同一个selector下，有rem，也就可以考虑用em */
+/* 比如下面这个情况，padding就会相当于也是3rem，所以这里继续用em在margin上也都可以，前提是上一行一定
+有个字体的rem设置
+h1{
+    font-size: 3rem;
+    padding:1em;
+} */
+
+
+
+
+
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+now the body is the whole page，当你打开dev tool就会看到
+注意哦，
+vh
+vw
+不一样！！我的doc里有解释！
+*/
+/* 
+body {
+ min-height: 100vh;
+} 
+*/
+
+
+
+  
+
+/*如果 采用width: 100vw;
+然后内容特别多，就会有scroll bar出现在下面横移的那种，不好看，不实用，
+所以一般用% ,应为vw严格限制width，用100%就不会有这种情况
+body{
+    
+    width: 100%;
+
+} */
+/* width: 100vw; */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/* 虽然字体尽量别用em，但是padding要用em */
+.container{
+    border: 2px dashed red;
+    /* width: 400px; */
+    /* font-size: 3rem; */
+    padding: 1.5rem;
+}
+
+
+/*
+main{
+    width: 50vw;这里用%也可以
+    background-color: blueviolet;
+    
+    font-size: 2rem;
+} 
+*/
+
+
+
+
+/* ch是用来限制横向的字符数 */
+/* p{
+    font-size: 2rem;
+    width: 40ch;
+} */
+
