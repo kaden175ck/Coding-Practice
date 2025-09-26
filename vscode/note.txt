@@ -1,0 +1,5 @@
+control b 可以把文件栏收下去
+control p 然后zenmode 可以无干扰
+可以拖拽文件，两个文件代码对比看
+control p可以跑或者搜索任何东西
+13：17
