@@ -16,12 +16,6 @@ type PingResponse struct {
 	Time    string `json:"time"`
 }
 
-// type Response struct {
-// 	Code int         `json:"code"`
-// 	Msg  string      `json:"msg"`
-// 	Data interface{} `json:"data"`
-// }
-
 type BizError struct {
 	Code int
 	Msg  string
@@ -30,93 +24,6 @@ type BizError struct {
 func (e BizError) Error() string {
 	return e.Msg
 }
-
-// func Success(ctx *app.RequestContext, data interface{}) {
-// 	ctx.JSON(200, Response{
-// 		Code: 0,
-// 		Msg:  "ok",
-// 		Data: data,
-// 	})
-// }
-
-// func FailWithCode(ctx *app.RequestContext, code int, msg string) {
-// 	ctx.JSON(400, Response{
-// 		Code: code,
-// 		Msg:  msg,
-// 		Data: nil,
-// 	})
-// }
-
-// func SquareService(nStr string) (int, error) {
-// 	n, err := strconv.Atoi(nStr)
-// 	if err != nil {
-// 		return 0, BizError{Code: 10001, Msg: "invalid parameter: n"}
-// 	}
-// 	return n * n, nil
-// }
-
-// func AuthMiddleware() app.HandlerFunc {
-// 	return func(c context.Context, ctx *app.RequestContext) {
-// 		token := string(ctx.GetHeader("X-Token"))
-// 		if token != "123" {
-// 			FailWithCode(ctx, 10002, "unauthorized")
-// 			return
-// 		}
-
-// 		// 放行，继续走后面的 handler
-// 		ctx.Next(c)
-// 	}
-// }
-
-// func RequestLogMiddleware() app.HandlerFunc {
-// 	return func(c context.Context, ctx *app.RequestContext) {
-// 		start := time.Now()
-
-// 		// 继续执行后面的 handler
-// 		ctx.Next(c)
-
-// 		// handler 执行完之后再走到这里
-// 		cost := time.Since(start)
-
-// 		method := string(ctx.Method())
-// 		path := string(ctx.Path())
-
-// 		log.Printf("[REQ] %s %s cost=%v\n", method, path, cost)
-// 	}
-// }
-
-// func BizErrorLogMiddleware() app.HandlerFunc {
-// 	return func(c context.Context, ctx *app.RequestContext) {
-// 		start := time.Now()
-
-// 		// 先让后面的 handler 执行
-// 		ctx.Next(c)
-
-// 		cost := time.Since(start)
-
-// 		// 读取响应 body（是 []byte）
-// 		bodyBytes := ctx.Response.Body()
-// 		if len(bodyBytes) == 0 {
-// 			return
-// 		}
-
-// 		// 尝试解析成 Response
-// 		var resp Response
-// 		err := json.Unmarshal(bodyBytes, &resp)
-// 		if err != nil {
-// 			return
-// 		}
-
-// 		// 只要 code != 0，就认为是业务错误，打印日志
-// 		if resp.Code != 0 {
-// 			method := string(ctx.Method())
-// 			path := string(ctx.Path())
-
-// 			log.Printf("[BIZ_ERR] %s %s code=%d msg=%s cost=%v\n",
-// 				method, path, resp.Code, resp.Msg, cost)
-// 		}
-// 	}
-// }
 
 func main() {
 	h := server.Default(
@@ -217,6 +124,28 @@ func main() {
 	authGroup.GET("/secret", func(c context.Context, ctx *app.RequestContext) {
 		Success(ctx, map[string]any{
 			"message": "you are authorized",
+		})
+	})
+
+	h.POST("/login", func(c context.Context, ctx *app.RequestContext) {
+		var req struct {
+			Username string `json:"username"`
+			Password string `json:"password"`
+		}
+
+		err := ctx.Bind(&req)
+		if err != nil {
+			FailWithCode(ctx, 10001, "invalid json body")
+			return
+		}
+
+		if req.Username != "admin" || req.Password != "123" {
+			FailWithCode(ctx, 10003, "invalid username or password")
+			return
+		}
+
+		Success(ctx, map[string]any{
+			"token": DemoToken,
 		})
 	})
 

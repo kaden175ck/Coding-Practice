@@ -9,3 +9,5 @@ func SquareService(nStr string) (int, error) {
 	}
 	return n * n, nil
 }
+
+const DemoToken = "abc123"

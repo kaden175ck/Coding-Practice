@@ -11,8 +11,10 @@ import (
 
 func AuthMiddleware() app.HandlerFunc {
 	return func(c context.Context, ctx *app.RequestContext) {
-		token := string(ctx.GetHeader("X-Token"))
-		if token != "123" {
+		auth := string(ctx.GetHeader("Authorization"))
+
+		expected := "Bearer " + DemoToken
+		if auth != expected {
 			FailWithCode(ctx, 10002, "unauthorized")
 			// ✅ 关键：中止后续 handler 执行
 			ctx.Abort()
