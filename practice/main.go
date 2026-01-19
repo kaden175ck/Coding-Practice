@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 	"time"
 
@@ -27,9 +28,23 @@ func (e BizError) Error() string {
 
 var store = NewSessionStore(5 * time.Minute)
 
+func getServerAddr() string {
+	addr := os.Getenv("SERVER_ADDR")
+	if addr == "" {
+		// 默认值（本地开发用）
+		return "127.0.0.1:8888"
+	}
+	return addr
+}
+
 func main() {
+	// h := server.Default(
+	// 	server.WithHostPorts("127.0.0.1:8888"),
+	// )
+	addr := getServerAddr()
+
 	h := server.Default(
-		server.WithHostPorts("127.0.0.1:8888"),
+		server.WithHostPorts(addr),
 	)
 
 	h.Use(RequestLogMiddleware())
@@ -158,6 +173,10 @@ func main() {
 		})
 	})
 
-	log.Println("Hertz server listening on http://127.0.0.1:8888")
+	// log.Println("Hertz server listening on http://127.0.0.1:8888")
+	log.Println("=================================")
+	log.Println("Service starting...")
+	log.Println("Listen addr:", addr)
+	log.Println("=================================")
 	h.Spin() // ⚠️ 必须大写
 }
