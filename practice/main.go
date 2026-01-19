@@ -25,6 +25,8 @@ func (e BizError) Error() string {
 	return e.Msg
 }
 
+var store = NewSessionStore(5 * time.Minute)
+
 func main() {
 	h := server.Default(
 		server.WithHostPorts("127.0.0.1:8888"),
@@ -144,8 +146,15 @@ func main() {
 			return
 		}
 
+		token := store.NewToken()
+		if token == "" {
+			FailWithCode(ctx, 10000, "internal error")
+			return
+		}
+
 		Success(ctx, map[string]any{
-			"token": DemoToken,
+			"token": token,
+			"ttl":   "5m",
 		})
 	})
 

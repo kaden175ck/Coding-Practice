@@ -13,15 +13,19 @@ func AuthMiddleware() app.HandlerFunc {
 	return func(c context.Context, ctx *app.RequestContext) {
 		auth := string(ctx.GetHeader("Authorization"))
 
-		expected := "Bearer " + DemoToken
-		if auth != expected {
+		prefix := "Bearer "
+		if len(auth) <= len(prefix) || auth[:len(prefix)] != prefix {
 			FailWithCode(ctx, 10002, "unauthorized")
-			// ✅ 关键：中止后续 handler 执行
 			ctx.Abort()
 			return
 		}
 
-		// 放行，继续走后面的 handler
+		token := auth[len(prefix):]
+		if !store.Validate(token) {
+			FailWithCode(ctx, 10002, "unauthorized")
+			ctx.Abort()
+			return
+		}
 		ctx.Next(c)
 	}
 }
