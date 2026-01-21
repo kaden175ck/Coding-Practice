@@ -176,7 +176,7 @@ func main() {
 	h.GET("/me/orders/:userId", func(c context.Context, ctx *app.RequestContext) {
 		userId := ctx.Param("userId")
 
-		data, err := FetchOrdersFromOrderService(c, userId)
+		data, err := FetchOrdersWithRetry(c, userId)
 		if err != nil {
 			// FailWithCode(ctx, 20001, "failed to fetch orders")
 			// return//

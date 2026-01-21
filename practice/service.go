@@ -130,3 +130,41 @@ func FetchOrdersFromOrderService(ctx context.Context, userId string) (OrdersResp
 
 	return data, nil
 }
+
+func FetchOrdersWithRetry(ctx context.Context, userId string) (OrdersResponse, error) {
+	var lastErr error
+
+	// 最多 3 次：第 1 次 + 重试 2 次
+	for attempt := 1; attempt <= 3; attempt++ {
+		data, err := FetchOrdersFromOrderService(ctx, userId)
+		if err == nil {
+			// 成功了
+			if attempt > 1 {
+				// 如果重试后才成功，记录一下
+				fmt.Printf("[RETRY] succeeded after %d attempts, userId=%s\n", attempt, userId)
+			}
+			return data, nil
+		}
+
+		lastErr = err
+		fmt.Printf("[RETRY] attempt=%d failed, userId=%s, err=%v\n", attempt, userId, err)
+
+		// 如果已经是最后一次，就不 sleep 了
+		if attempt == 3 {
+			fmt.Printf("[RETRY] all attempts failed, userId=%s\n", userId)
+			break
+		}
+
+		// 退避：100ms、200ms
+		var sleepDuration time.Duration
+		if attempt == 1 {
+			sleepDuration = 100 * time.Millisecond
+		} else if attempt == 2 {
+			sleepDuration = 200 * time.Millisecond
+		}
+		fmt.Printf("[RETRY] sleeping %v before next attempt\n", sleepDuration)
+		time.Sleep(sleepDuration)
+	}
+
+	return OrdersResponse{}, lastErr
+}
