@@ -111,13 +111,13 @@ func FetchOrdersFromOrderService(ctx context.Context, userId string) (OrdersResp
 	// 3) 发请求
 	resp, err := client.Do(req)
 	if err != nil {
-		return OrdersResponse{}, err
+		return OrdersResponse{}, fmt.Errorf("call order-service failed: %w", err)
 	}
 	defer resp.Body.Close()
 
 	// 4) 非 200 当成错误（demo 简化）
 	if resp.StatusCode != 200 {
-		return OrdersResponse{}, fmt.Errorf("order-service status code=%d", resp.StatusCode)
+		return OrdersResponse{}, fmt.Errorf("order-service returned non-200: %d", resp.StatusCode)
 	}
 
 	// 5) 解析 JSON

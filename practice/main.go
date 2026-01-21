@@ -178,14 +178,24 @@ func main() {
 
 		data, err := FetchOrdersFromOrderService(c, userId)
 		if err != nil {
-			FailWithCode(ctx, 20001, "failed to fetch orders")
+			// FailWithCode(ctx, 20001, "failed to fetch orders")
+			// return//
+			// ✅ 降级：不直接报错，把订单当空，告诉客户端本次是降级结果
+			Success(ctx, map[string]any{
+				"from":     "order-service",
+				"userId":   userId,
+				"orders":   []OrderItem{},
+				"degraded": true,
+				"reason":   "order-service unavailable",
+			})
 			return
 		}
 
 		Success(ctx, map[string]any{
-			"from":   "order-service",
-			"userId": data.UserId,
-			"orders": data.Orders,
+			"from":     "order-service",
+			"userId":   data.UserId,
+			"orders":   data.Orders,
+			"degraded": false,
 		})
 	})
 
