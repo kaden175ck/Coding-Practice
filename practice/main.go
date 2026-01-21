@@ -173,6 +173,22 @@ func main() {
 		})
 	})
 
+	h.GET("/me/orders/:userId", func(c context.Context, ctx *app.RequestContext) {
+		userId := ctx.Param("userId")
+
+		data, err := FetchOrdersFromOrderService(c, userId)
+		if err != nil {
+			FailWithCode(ctx, 20001, "failed to fetch orders")
+			return
+		}
+
+		Success(ctx, map[string]any{
+			"from":   "order-service",
+			"userId": data.UserId,
+			"orders": data.Orders,
+		})
+	})
+
 	// log.Println("Hertz server listening on http://127.0.0.1:8888")
 	log.Println("=================================")
 	log.Println("Service starting...")

@@ -1,8 +1,13 @@
 package main
 
 import (
+	"context"
 	"crypto/rand"
 	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
 	"strconv"
 	"sync"
 	"time"
@@ -68,4 +73,60 @@ func (s *SessionStore) Validate(token string) bool {
 
 	s.mu.Unlock()
 	return true
+}
+
+func getOrderServiceBaseURL() string {
+	base := os.Getenv("ORDER_SERVICE_URL")
+	if base == "" {
+		return "http://127.0.0.1:10001"
+	}
+	return base
+}
+
+type OrderItem struct {
+	OrderId string `json:"orderId"`
+	Amount  int    `json:"amount"`
+}
+
+type OrdersResponse struct {
+	UserId string      `json:"userId"`
+	Orders []OrderItem `json:"orders"`
+}
+
+func FetchOrdersFromOrderService(ctx context.Context, userId string) (OrdersResponse, error) {
+	baseURL := getOrderServiceBaseURL()
+	url := fmt.Sprintf("%s/orders/%s", baseURL, userId)
+
+	// 1) 给 HTTP 请求加超时（微服务必备）
+	client := &http.Client{
+		Timeout: 2 * time.Second,
+	}
+
+	// 2) 创建请求（把 ctx 传进去，以后可以支持取消/超时）
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return OrdersResponse{}, err
+	}
+
+	// 3) 发请求
+	resp, err := client.Do(req)
+	if err != nil {
+		return OrdersResponse{}, err
+	}
+	defer resp.Body.Close()
+
+	// 4) 非 200 当成错误（demo 简化）
+	if resp.StatusCode != 200 {
+		return OrdersResponse{}, fmt.Errorf("order-service status code=%d", resp.StatusCode)
+	}
+
+	// 5) 解析 JSON
+	var data OrdersResponse
+	decoder := json.NewDecoder(resp.Body)
+	err = decoder.Decode(&data)
+	if err != nil {
+		return OrdersResponse{}, err
+	}
+
+	return data, nil
 }
