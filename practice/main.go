@@ -38,6 +38,7 @@ func getServerAddr() string {
 }
 
 func main() {
+	initOrderRPCClient()
 	// h := server.Default(
 	// 	server.WithHostPorts("127.0.0.1:8888"),
 	// )
@@ -173,6 +174,7 @@ func main() {
 		})
 	})
 
+	// HTTP 版本（原来的）
 	h.GET("/me/orders/:userId", func(c context.Context, ctx *app.RequestContext) {
 		userId := ctx.Param("userId")
 
@@ -182,7 +184,7 @@ func main() {
 			// return//
 			// ✅ 降级：不直接报错，把订单当空，告诉客户端本次是降级结果
 			Success(ctx, map[string]any{
-				"from":     "order-service",
+				"from":     "order-service (HTTP)",
 				"userId":   userId,
 				"orders":   []OrderItem{},
 				"degraded": true,
@@ -192,7 +194,31 @@ func main() {
 		}
 
 		Success(ctx, map[string]any{
-			"from":     "order-service",
+			"from":     "order-service (HTTP)",
+			"userId":   data.UserId,
+			"orders":   data.Orders,
+			"degraded": false,
+		})
+	})
+
+	// RPC 版本（新）
+	h.GET("/me/orders-rpc/:userId", func(c context.Context, ctx *app.RequestContext) {
+		userId := ctx.Param("userId")
+
+		data, err := FetchOrdersViaRPC(c, userId)
+		if err != nil {
+			Success(ctx, map[string]any{
+				"from":     "order-service (RPC)",
+				"userId":   userId,
+				"orders":   []OrderItem{},
+				"degraded": true,
+				"reason":   fmt.Sprintf("rpc call failed: %v", err),
+			})
+			return
+		}
+
+		Success(ctx, map[string]any{
+			"from":     "order-service (RPC)",
 			"userId":   data.UserId,
 			"orders":   data.Orders,
 			"degraded": false,

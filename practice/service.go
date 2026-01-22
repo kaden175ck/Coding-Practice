@@ -9,8 +9,11 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
+
+	order "order-rpc/kitex_gen/order"
 )
 
 func SquareService(nStr string) (int, error) {
@@ -94,7 +97,12 @@ type OrdersResponse struct {
 }
 
 func FetchOrdersFromOrderService(ctx context.Context, userId string) (OrdersResponse, error) {
-	baseURL := getOrderServiceBaseURL()
+	instances := getOrderServiceInstances()
+	baseURL := pickOrderServiceInstance(instances)
+	if baseURL == "" {
+		return OrdersResponse{}, fmt.Errorf("no order-service instance available")
+	}
+
 	url := fmt.Sprintf("%s/orders/%s", baseURL, userId)
 
 	// 1) 给 HTTP 请求加超时（微服务必备）
@@ -167,4 +175,66 @@ func FetchOrdersWithRetry(ctx context.Context, userId string) (OrdersResponse, e
 	}
 
 	return OrdersResponse{}, lastErr
+}
+
+func getOrderServiceInstances() []string {
+	// 用环境变量模拟“服务发现”
+	// 真实世界：这里来自注册中心
+	raw := os.Getenv("ORDER_SERVICE_INSTANCES")
+	if raw == "" {
+		// 本地默认 3 个实例
+		return []string{
+			"http://127.0.0.1:10001",
+			"http://127.0.0.1:10002",
+			"http://127.0.0.1:10003",
+		}
+	}
+
+	// 简单按逗号切
+	return strings.Split(raw, ",")
+}
+
+var (
+	orderServiceIndex = 0
+	orderServiceMu    sync.Mutex // 加个锁
+)
+
+func pickOrderServiceInstance(instances []string) string {
+	if len(instances) == 0 {
+		return ""
+	}
+
+	orderServiceMu.Lock() // 上锁
+	instance := instances[orderServiceIndex%len(instances)]
+	orderServiceIndex++
+	orderServiceMu.Unlock() // 解锁
+
+	return instance
+}
+
+func FetchOrdersViaRPC(ctx context.Context, userId string) (OrdersResponse, error) {
+	if orderClient == nil {
+		return OrdersResponse{}, fmt.Errorf("order rpc client not initialized")
+	}
+
+	resp, err := orderClient.GetOrders(ctx, &order.GetOrdersRequest{
+		UserId: userId,
+	})
+	if err != nil {
+		return OrdersResponse{}, err
+	}
+
+	// RPC 返回的是强类型 struct，我们手动转一下
+	items := make([]OrderItem, 0, len(resp.Orders))
+	for _, it := range resp.Orders {
+		items = append(items, OrderItem{
+			OrderId: it.OrderId,
+			Amount:  int(it.Amount),
+		})
+	}
+
+	return OrdersResponse{
+		UserId: resp.UserId,
+		Orders: items,
+	}, nil
 }
